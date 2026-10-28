@@ -1,7 +1,7 @@
 package fr.efrei.transfret;
 
 public enum ModeTransport {
-    ROUTE(new TarifRoute()), RAIL(new TarifRail()), MER(new TarifMer()), AIR(new TarifAir());
+    ROUTE(new TarifRoute()), RAIL(new TarifRail()), MER(new TarifMer()), AIR(new TarifAir()), FLUVIAL(new TarifFluvial());
 
     private final TarifTransport tarif;
 

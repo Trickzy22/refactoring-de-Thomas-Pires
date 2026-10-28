@@ -13,6 +13,8 @@ public class EstimateurDelai {
     public static final int DELAI_AIR_LONGUE_DISTANCE = 2;
     public static final int DISTANCE_LONGUE_AIR = 3000;
     public static final int DELAI_MINIMUM = 1;
+    public static final double KM_PAR_JOUR_FLUVIAL = 360.0;
+    public static final int JOURS_EN_PLUS_FLUVIAL = 1;
 
     // retourne le délai de livraison en jours
     public int calculerDelai(int distance, ModeTransport mode, boolean urgent) {
@@ -37,6 +39,9 @@ public class EstimateurDelai {
                 jours = DELAI_AIR;
                 if (distance > DISTANCE_LONGUE_AIR) jours = DELAI_AIR_LONGUE_DISTANCE;
                 if (urgent) jours = DELAI_AIR;
+                break;
+            case FLUVIAL:
+                jours = (int) Math.ceil(distance / KM_PAR_JOUR_FLUVIAL) + JOURS_EN_PLUS_FLUVIAL;
                 break;
         }
         if (jours < DELAI_MINIMUM) jours = DELAI_MINIMUM;

@@ -9,6 +9,7 @@ public class CalculateurPrix {
         prix = new SupplementFragile(prix);
         prix = new SupplementDangereux(prix);
         prix = new SupplementRefrigere(prix);
+        prix = new SupplementHorsGabarit(prix);
         if (urgent) prix = new SupplementUrgence(prix);
         prix = new Remise(prix, typeClient.getRemise());
         if (assurance) prix = new Assurance(prix);
